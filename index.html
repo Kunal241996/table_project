@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Supplies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+       .table-container {
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    .toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 20px;
+        padding: 10px; 
+    }
+    
+    .icon-spacing {
+    margin-right: 15px;
+    }
+
+    table {
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    th {
+        cursor: pointer;
+        position: relative;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    th::after {
+        content: '\f0dc';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        margin-left: 5px;
+    }
+
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    td {
+        padding: 8px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container table-container">
+        <h2>Chemical Supplies</h2>
+        <div class="toolbar">
+            <i class="fas fa-plus icon-spacing" style="color: #0a0aef; width: 24px; height: 24px;" onclick="addRow()" title="Add Row"></i>
+            <i class="fas fa-arrow-down icon-spacing"style="color: #0a0aef; width: 24px; height: 24px;" onclick="moveRowDown()" title="Move Row Down"></i>
+            <i class="fas fa-arrow-up icon-spacing" style="color: #555; width: 24px; height: 24px;" onclick="moveRowUp()" title="Move Row Up"></i>
+            <i class="fas fa-trash icon-spacing" style="color: #f20909; width: 24px; height: 24px;" onclick="deleteRow()" title="Delete Row"></i>
+            <i class="fas fa-sync-alt icon-spacing" style="color: #0a0aef; width: 24px; height: 24px;" onclick="refreshData()" title="Refresh"></i>
+            <i class="fas fa-save icon-spacing" style="color: #0a0aef; width: 24px; height: 24px;" onclick="saveData()" title="Save"></i>
+        </div>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th onclick="sortTable(0)">ID</th>
+                    <th onclick="sortTable(1)">Chemical Name</th>
+                    <th onclick="sortTable(2)">Vendor</th>
+                    <th onclick="sortTable(3)">Density (g/m³)</th>
+                    <th onclick="sortTable(4)">Viscosity (m²/s)</th>
+                    <th onclick="sortTable(5)">Packaging</th>
+                    <th onclick="sortTable(6)">Pack Size</th>
+                    <th onclick="sortTable(7)">Unit</th>
+                    <th onclick="sortTable(8)">Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
